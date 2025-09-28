@@ -4,10 +4,10 @@ $msg = '';
 $err_msg = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $msg = "私は{$_POST['message']}歳です。";
-
-    if (empty($msg)) {
+    if (empty($_POST['message'])) {
         $err_msg = "年齢を入力してください";
+    } else {
+        $msg = "私は{$_POST['message']}歳です。";
     }
 }
 ?>
