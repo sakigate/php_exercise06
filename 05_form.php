@@ -8,11 +8,11 @@ $msg3 = '';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $msg1 = $_POST["message1"] ?? "";
-    $msg2 = $_POST["message2"] ?? "";
-    $msg3 = $_POST["message3"] ?? "";
+    $msg1 = trim((string)filter_input(INPUT_POST, 'message1', FILTER_UNSAFE_RAW));
+    $msg2 = trim((string)filter_input(INPUT_POST, 'message2', FILTER_UNSAFE_RAW));
+    $msg3 = trim((string)filter_input(INPUT_POST, 'message3', FILTER_UNSAFE_RAW));
 
-    if ($msg1 === "" || $msg2 === "" || $msg3 === "" || !is_numeric($msg1) || !is_numeric($msg2) || !is_numeric($msg3)) {
+    if (!is_numeric($msg1) || !is_numeric($msg2) || !is_numeric($msg3)) {
         $err_msg = "全てに数字を入力してください";
     } else {
         $sum = $msg1 + $msg2 + $msg3;
