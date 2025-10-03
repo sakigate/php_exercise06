@@ -1,15 +1,8 @@
 <?php
 
-$msg = '';
+$name = '';
 $err_msg = " ";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $msg = "私は{$_POST['message']}歳です。";
-
-    if (empty($msg)) {
-        $err_msg = "未入力です";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -20,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <form action="result.php" method="post">
+    <form action="02_result.php" method="post">
         <div>
             <label for="">名前</label>
             <input type="text" name="message" value="">
@@ -33,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="submit" value="送信">
         </div>
     </form>
-    <p><?= htmlspecialchars($msg, ENT_QUOTES, "UTF-8") ?></p>
+    <p><?= htmlspecialchars($name, ENT_QUOTES, "UTF-8") ?></p>
 </body>
 
 </html>
